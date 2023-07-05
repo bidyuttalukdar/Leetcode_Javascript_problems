@@ -27,3 +27,25 @@ Follow up: Suppose there are lots of incoming s, say s1, s2, ..., sk where k >= 
 
 
 
+/**
+ * @param {string} s
+ * @param {string} t
+ * @return {boolean}
+ */
+ var isSubsequence = function(s, t) {
+    if(s.length > t.length){
+        return false
+    }
+    const t_length = t.length;
+    let j=0;
+    for(let i=0;i<t_length;i++){
+        if(s[j]===t[i]){
+            j++;
+        }
+        //if asked for continues substring
+        // else if(j>1){
+        //     j=0;
+        // }
+    }
+    return j === s.length
+};
