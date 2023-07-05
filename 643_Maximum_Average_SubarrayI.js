@@ -23,3 +23,24 @@ n == nums.length
 -104 <= nums[i] <= 104
 */
 
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+ var findMaxAverage = function(nums, k) {
+    let sum = 0;
+    if(nums.length < k){
+        return 0;
+    }
+    for(let i=0;i<k;i++){
+        sum = sum + nums[i]
+    }
+    let res =sum
+    for(let i=k;i<nums.length;i++){
+        sum = sum-nums[i-k]+nums[i]
+        res = Math.max(sum,res)
+    }
+    return res/k
+};
+
