@@ -12,3 +12,10 @@ output:
 { employee: 'Bobby', employee_233vv: 'Alice' }
 
 */
+
+Object.keys(obj).some((str) => /\d/.test(str)) ? Object.keys(obj).forEach(key => { 
+    if(/\d/.test(key)){ 
+         obj[key.replace(/(\d+)/g, '_$1')] = obj[key];
+         delete obj[key]; 
+    } 
+}) : undefined
