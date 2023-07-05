@@ -30,5 +30,34 @@ Constraints:
 1 <= nums[i] <= 109
 1 <= k <= 109
 */
+/**
+ * @param {number[]} nums
+ * @param {number} k
+ * @return {number}
+ */
+ var maxOperations = function(nums, k) {
+    // let sum = nums.reduce(function (previousValue, currentValue) {
+    //     return previousValue + currentValue;
+    // });
+    // return sum/k
+    nums.sort((a,b)=>a-b)
+    let result = 0;
+    let left = 0;
+    let right = nums.length-1;
+    while(left<right){
+        const sum = nums[left] + nums[right];
+        if(sum<k){
+            left++;
+        }else if(sum>k){
+            right--;
+        }else{
+            result++;
+            left++;
+            right--;
+        }
+    }
+    return result 
+};
+
 
 
