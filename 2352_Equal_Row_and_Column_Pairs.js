@@ -29,3 +29,23 @@ n == grid.length == grid[i].length
 1 <= n <= 200
 1 <= grid[i][j] <= 105
 */
+
+/**
+ * @param {number[][]} grid
+ * @return {number}
+ */
+ var equalPairs = function(grid) {
+    const mapRow = new Map()
+    let count=0;
+    grid.forEach((row)=>{
+        row = JSON.stringify(row)
+        mapRow.set(row, (mapRow.get(row)||0) + 1)
+    })
+    // console.log("mapRow",mapRow)
+    for(let c=0; c<grid.length; c++){
+        const col = JSON.stringify(grid.map(row=>row[c]))
+        count += mapRow.get(col) || 0;
+    }
+    return count
+};
+
