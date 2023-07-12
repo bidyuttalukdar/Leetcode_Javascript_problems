@@ -37,3 +37,26 @@ chars[i] is a lowercase English letter, uppercase English letter, digit, or symb
 */
 
 
+/**
+ * @param {character[]} chars
+ * @return {number}
+ */
+ var compress = function(chars) {
+    let i = 0;
+    let j = 0;
+    while(i<chars.length){
+        let count = 0
+        let ch = chars[i]
+        while(i<chars.length && chars[i] === ch){
+            i++
+            count++
+        }
+        chars[j++] = ch
+        if(count > 1){
+            for(let digit of count.toString()){
+                chars[j++] = digit
+            }
+        }
+    }
+    return j
+};
